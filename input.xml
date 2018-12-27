@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+  <complexType name="Order">
+      <sequence>
+          <element name="item" type="Item" maxOccurs="unbounded"/>
+      </sequence>
+  </complexType>
+  <complexType name="Item">
+      <sequence>
+          <element name="description" type="string"/>
+          <element name="weight" type="Weight"/>
+          <element name="tax" type="Tax"/>
+      </sequence>
+  </complexType>
+  <complexType name="Address" abstract="true">
+      <sequence>
+          <element name="name" type="string"/>
+          <element name="street" type="string"/>
+          <element name="city" type="string"/>
+          <element name="country" type="string"/>
+      </sequence>
+  </complexType>
+  <complexType name="Origin">
+      <complexContent>
+            <sequence>
+                <element name="status" type="Status"/>
+                <element name="jobTitle" type="string"/>
+                <element name="startDate" type="date"/>
+                <element name="department" type="string"/>
+             </sequence>
+      </complexContent>
+  </complexType>
+  <complexType name="Destination">
+      <complexContent>
+          <extension base="Address"/>
+      </complexContent>
+  </complexType>
+  <complexType name="Tax">
+      <simpleContent>
+          <extension base="double">
+              <attribute name="currency" type="string" use="required"/>
+          </extension>
+      </simpleContent>
+  </complexType>
+  <complexType name="Weight">
+          <simpleContent>
+              <extension base="double">
+                  <attribute name="unit" type="double" use="required"/>
+              </extension>
+          </simpleContent>
+  </complexType>
+</schema>
