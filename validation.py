@@ -13,12 +13,12 @@ def json_validator(data):
 # FIN Fonction de validation du fichier JSON
 
 
-# DEBUT fonction d'analyse du fichier
+# DEBUT fonction d'analyse du fichier XML
 def parsefile(file):
     parser = make_parser(  )
     parser.setContentHandler(ContentHandler(  ))
     parser.parse(file)
-# FIN fonction d'analyse du fichier
+# FIN fonction d'analyse du fichier XML
 
 # DEBUT Fonction de validation du fichier XML
 def xml_validator(file):
