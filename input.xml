@@ -4,7 +4,7 @@
     attributeFormDefault="unqualified">
   <complexType name="Order">
       <sequence>
-          <element name="item" type="Item" maxOccurs="unbounded"/>
+          <element name="item" type="Item" minOccurs="0" maxOccurs="n"/>
       </sequence>
   </complexType>
   <complexType name="Item">
@@ -12,6 +12,7 @@
           <element name="description" type="string"/>
           <element name="weight" type="Weight"/>
           <element name="tax" type="Tax"/>
+          <element name="item" type="Order" minOccurs="0" maxOccurs="unbounded"/>
       </sequence>
   </complexType>
   <complexType name="Address" abstract="true">
@@ -20,6 +21,19 @@
           <element name="street" type="string"/>
           <element name="city" type="string"/>
           <element name="country" type="string"/>
+      </sequence>
+  </complexType>
+  <complexType name="Etudiant" abstract="true">
+      <sequence>
+          <element name="name" type="string"/>
+          <element name="last_name" type="string"/>
+          <element name="ine" type="string"/>
+          <element name="classe" type="Classe"/>
+      </sequence>
+  </complexType>
+  <complexType name="Classe" abstract="true">
+      <sequence>
+          <element name="name" type="string"/>
       </sequence>
   </complexType>
   <complexType name="Origin">
@@ -50,5 +64,21 @@
                   <attribute name="unit" type="double" use="required"/>
               </extension>
           </simpleContent>
+  </complexType>
+  <complexType name="Item_Order">
+      <relation name="contenir">
+            <sequence>
+                <element name="Item" minOccurs="0" maxOccurs="n" />
+                <element name="Order" minOccurs="0" maxOccurs="n" />
+             </sequence>
+      </relation>
+  </complexType>
+  <complexType name="Etudiant_Classe">
+      <relation name="Frequent">
+            <sequence>
+                <element name="Etudiant" minOccurs="1" maxOccurs="1" />
+                <element name="Classe" minOccurs="0" maxOccurs="n" />
+             </sequence>
+      </relation>
   </complexType>
 </schema>
