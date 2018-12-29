@@ -1,64 +1,94 @@
-{
-  "Ecrivain": {
+[{ "Ecrivain": {
     "type": "object",
     "required": true,
+<<<<<<< HEAD
     "attributs": {
       "No Ecrivain": {
         "type": "string",
         "isPrimary": true
+=======
+    "attributs": [
+      {
+        "No Ecrivain": {
+          "type": "string",
+          "isPrimary": true
+        }
+>>>>>>> cd77098c7ccbf518f8711bc8c9bbd177481aea08
       },
-      "Nom": {
-        "type": "string",
-        "required": true
+      {
+        "Nom": {
+          "type": "string",
+          "required": true
+        }
       },
-      "Prenom": {
-        "type": "string",
-        "required": true
+      {
+        "Prenom": {
+          "type": "string",
+          "required": true
+        }
       }
-    }
-  },
-  "Livre": {
-    "type": "object",
-    "required": true,
-    "attributs": {
-      "No Livre": {
-        "type": "string",
-        "required": true
-      },
-      "Titre": {
-        "type": "string",
-        "required": true
-      },
-      "Annee": {
-        "type": "integer",
-        "required": true
-      },
-      "Prix": {
-        "type": "integer",
-        "required": true
-      }
-    }
-  },
-  "Client": {
-    "type": "object",
-    "required": true,
-    "attributs": {
-      "Email": {
-        "type": "string",
-        "isPrimary": true
-      },
-      "Nom": {
-        "type": "string",
-        "required": true
-      },
-      "Prenom": {
-        "type": "string",
-        "required": true
-      },
-      "Telephone": {
-        "type": "string",
-        "required": true
-      }
-    }
+    ]
   }
-}
+},
+{ "Livre": {
+    "type": "object",
+    "required": true,
+    "attributs": [
+      {
+        "No Livre": {
+          "type": "string",
+          "required": true
+        }
+      },
+      {
+        "Titre": {
+          "type": "string",
+          "required": true
+        }
+      },
+      {
+        "Annee": {
+          "type": "integer",
+          "required": true
+        }
+      },
+      {
+        "Prix": {
+          "type": "integer",
+          "required": true
+        }
+      }
+    ]
+  }
+},
+{ "Client": {
+    "type": "object",
+    "required": true,
+    "attributs": [
+      {
+        "Email": {
+          "type": "string",
+          "isPrimary": true
+        }
+      },
+      {
+        "Nom": {
+          "type": "string",
+          "required": true
+        }
+      },
+      {
+        "Prenom": {
+          "type": "string",
+          "required": true
+        }
+      },
+      {
+        "Telephone": {
+          "type": "string",
+          "required": true
+        }
+      }
+    ]
+  }
+}]
