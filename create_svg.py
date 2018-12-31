@@ -39,12 +39,22 @@ for i in range(len(listEntites)):
 
         # Affichage du nom de l'entité
         svg_document.add(svg_document.text(listEntites[i],
-                                           insert = (20, i*150 + 30)))
+            insert=(20, i*150 + 30),
+            stroke='none',
+            fill="rgb(42, 42, 42)",
+            font_size='15px',
+            font_weight="bold")
+        )
 
         # Affichage de la liste des attributs
         for k in range(len(listAttributs)):
             svg_document.add(svg_document.text(listAttributs[k],
-                                               insert = (20, i*150 + 40 + (k+1)*20)))
+                insert=(20, i*150 + 40 + (k+1)*20),
+                stroke='none',
+                fill="rgb(15, 15, 15)",
+                font_size='15px',
+                font_weight="bold")
+            )
     else:
         # Creation du rectangle contenant les infos de l'entité
         svg_document.add(svg_document.rect(insert = (400, (i - 1)*150 + 10),
@@ -61,13 +71,24 @@ for i in range(len(listEntites)):
 
         # Affichage du nom de l'entité
         svg_document.add(svg_document.text(listEntites[i],
-                                           insert = (410, (i - 1)*150 + 30)))
+            insert=(410, (i - 1)*150 + 30),
+            stroke='none',
+            fill="rgb(15, 15, 15)",
+            font_size='15px',
+            font_weight="bold")
+        )
 
         # Affichage de la liste des attributs
         for k in range(len(listAttributs)):
             svg_document.add(svg_document.text(listAttributs[k],
-                                               insert = (410, (i - 1)*150 + 40 + (k+1)*20)))
+                insert=(410, (i - 1)*150 + 40 + (k+1)*20),
+                stroke='none',
+                fill="rgb(15, 15, 15)",
+                font_size='15px',
+                font_weight="bold")
+            )
 
+svg_document.add(svg_document.line(start=(10, 10), end=(50, 50)))
 # ---------------
 
 
