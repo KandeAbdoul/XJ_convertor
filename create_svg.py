@@ -44,7 +44,7 @@ for i in range(len(listEntites)):
             "coordX": 10,
             "coordY": i*150 + 10
         }
-        entityCoordsList.append(entityCoords)            
+        entityCoordsList.append(entityCoords)          
 
         svg_document.add(svg_document.rect(insert = (10, i*150 + 10),
                                            size = ("150px", "26px"),
@@ -113,25 +113,64 @@ for i in range(len(listEntites)):
                 font_weight="bold")
             )
 
-        svg_document.add(svg_document.line(
-            (550,  (i - 1)*150 + 10),
-            (100, 100),
-            stroke_width = "2",
-            stroke="rgb(15, 15, 15)"))
+    
+    
+# ---------------
 
+# print(svg_document.tostring())
+
+for i in range(len(listEntites)):
     # Recuperations des differentes associations
     nbAssocs = len(myJsonData[i][listEntites[i]]['relations']['associations'])
     for j in range(nbAssocs):
-        # for key in myJsonData[i][listEntites[i]]['relations']['associations'][j].keys():
-        #     listAssocs.append(key)
-        #     print(key)
-        nomAutreEntite = myJsonData[i][listEntites[i]]['relations']['associations'][j]["nomAutreEntite"]
-        for k in range(len(entityCoordsList)):
-            if entityCoordsList[k]['nomEntite'] == nomAutreEntite:
-                print('Yeeeeeeeaah')
-# ---------------
+            # for key in myJsonData[i][listEntites[i]]['relations']['associations'][j].keys():
+            #     listAssocs.append(key)
+            #     print(key)
+            nomAutreEntite = myJsonData[i][listEntites[i]]['relations']['associations'][j]["nomAutreEntite"]
+            cardDeb = myJsonData[i][listEntites[i]]['relations']['associations'][j]["cardDeb"]
+            cardFin = myJsonData[i][listEntites[i]]['relations']['associations'][j]["cardFin"]
+            nomAssoc = myJsonData[i][listEntites[i]]['relations']['associations'][j]["nomAssoc"]
 
-# print(entityCoordsList)
-# print(svg_document.tostring())
+            for k in range(len(entityCoordsList)):
+                if entityCoordsList[k]['nomEntite'] == listEntites[i]:
+                    debutLigneX = entityCoordsList[k]['coordX'] + 150
+                    debutLigneY = entityCoordsList[k]['coordY'] + 65
+                if entityCoordsList[k]['nomEntite'] == nomAutreEntite:
+                    finLigneX = entityCoordsList[k]['coordX']
+                    finLigneY = entityCoordsList[k]['coordY'] + 65
+
+                    svg_document.add(svg_document.line(
+                        (debutLigneX, debutLigneY),
+                        (finLigneX, finLigneY),
+                        stroke_width = "2",
+                        stroke="rgb(15, 15, 15)"))
+                    
+                    # Affichage de la cardinalité depart
+                    svg_document.add(svg_document.text(cardDeb,
+                        insert=(debutLigneX + 10, debutLigneY - 10),
+                        stroke='none',  
+                        fill="rgb(15, 15, 15)",
+                        font_size='15px',
+                        font_weight="bold")
+                    )
+
+                    # Affichage de la cardinalité arrivée
+                    svg_document.add(svg_document.text(cardFin,
+                        insert=(finLigneX - 30, finLigneY - 10),
+                        stroke='none',  
+                        fill="rgb(15, 15, 15)",
+                        font_size='15px',
+                        font_weight="bold")
+                    )
+
+                    # Affichage du nom de l'association
+                    svg_document.add(svg_document.text(nomAssoc,
+                        insert=((finLigneX - debutLigneX) / 2 + debutLigneX, finLigneY - 10),
+                        stroke='none',  
+                        fill="rgb(15, 15, 15)",
+                        font_size='15px',
+                        font_weight="bold")
+                    )
+
 
 svg_document.save()
