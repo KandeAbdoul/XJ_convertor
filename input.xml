@@ -23,6 +23,13 @@
           <element name="country" type="string"/>
       </sequence>
   </complexType>
+  <complexType name="Restaurant" abstract="true">
+      <sequence>
+          <element name="nom" type="string"/>
+          <element name="Lieu" type="string"/>
+          <element name="menu" type="string"/>
+      </sequence>
+  </complexType>
   <complexType name="Etudiant" abstract="true">
       <sequence>
           <element name="name" type="string"/>
@@ -68,16 +75,24 @@
   <complexType name="Item_Order">
       <relation name="contenir">
             <sequence>
-                <element name="Item" minOccurs="0" maxOccurs="n" />
                 <element name="Order" minOccurs="0" maxOccurs="n" />
+                <element name="Item" minOccurs="0" maxOccurs="n" />
              </sequence>
       </relation>
   </complexType>
   <complexType name="Etudiant_Classe">
-      <relation name="Frequent">
+      <relation name="Frequente">
             <sequence>
                 <element name="Etudiant" minOccurs="1" maxOccurs="1" />
                 <element name="Classe" minOccurs="0" maxOccurs="n" />
+             </sequence>
+      </relation>
+  </complexType>
+  <complexType name="Restaurant_Adresse">
+      <relation name="situer">
+            <sequence>
+                <element name="Address" minOccurs="1" maxOccurs="1" />
+                <element name="Restaurant" minOccurs="0" maxOccurs="n" />
              </sequence>
       </relation>
   </complexType>

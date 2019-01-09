@@ -1,19 +1,12 @@
 [{ "Ecrivain": {
     "type": "object",
     "required": true,
-<<<<<<< HEAD
-    "attributs": {
-      "No Ecrivain": {
-        "type": "string",
-        "isPrimary": true
-=======
     "attributs": [
       {
         "No Ecrivain": {
           "type": "string",
           "isPrimary": true
         }
->>>>>>> cd77098c7ccbf518f8711bc8c9bbd177481aea08
       },
       {
         "Nom": {

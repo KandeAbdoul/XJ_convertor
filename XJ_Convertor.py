@@ -14,7 +14,7 @@ def parseJSON(filePath):
 # FIN Fonction permettant d'extraire les donnees du fichier json en respectant le format
 
 
-if len(sys.argv) == 7:
+if len(sys.argv) <= 7:
 
     fileType = sys.argv[2]
     inputType = sys.argv[3]
@@ -48,7 +48,7 @@ if len(sys.argv) == 7:
                         print('---Erreur: Veuillez entrer un fichier XML')
                     else:
                         if validation.xml_validator(myfile):
-                            print('Traitement du fichier XML')
+                            import create_svg
                         else:
                             validation.xml_validator(myfile)
                 else:
