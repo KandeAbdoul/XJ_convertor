@@ -3,8 +3,10 @@ from xml.sax.handler import ContentHandler
 from xml.sax import make_parser
 
 # DEBUT Fonction de validation du fichier JSON
-def json_validator(data):
+def json_validator(myfile):
     try:
+        file = open(myfile)
+        data = file.read()
         json.loads(data)
         return True
     except ValueError as error:
@@ -24,9 +26,10 @@ def parsefile(file):
 def xml_validator(file):
     try:
         parsefile(file)
+        # print ("Le fichier %s est bien formatté" % file)
         return True
     except Exception as e:
-        print "le fichier ", file, "n'est pas bien formate"
+        print ("---Erreur: Le fichier %s n'est pas bien formatté ! " % file)
         print("Voici l'erreur: %s" % e)
         return False
 # FIN Fonction de validation du fichier XML

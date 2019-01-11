@@ -1,87 +1,59 @@
-[{ "Ecrivain": {
-    "type": "object",
-    "required": true,
-    "attributs": [
+[
+  {
+    "Ecrivain": [
       {
-        "No Ecrivain": {
-          "type": "string",
-          "isPrimary": true
-        }
+        "No Ecrivain": "MK99",
+        "Nom": "KEBE",
+        "Prenom": "Moustapha"
+      },
+      { 
+        "No Ecrivain": "AB12",
+        "Nom": "DOE",
+        "Prenom": "John" 
       },
       {
-        "Nom": {
-          "type": "string",
-          "required": true
-        }
-      },
-      {
-        "Prenom": {
-          "type": "string",
-          "required": true
-        }
+        "No Ecrivain": "JS34",
+        "Nom": "SERIEN",
+        "Prenom": "Jean"
       }
-    ]
-  }
-},
-{ "Livre": {
-    "type": "object",
-    "required": true,
-    "attributs": [
-      {
-        "No Livre": {
-          "type": "string",
-          "required": true
+    ],
+    "relations": {
+      "associations": [
+        {
+          "nomAutreEntite": "Livre",
+          "nomAssoc": "Ecrire"
         }
-      },
+      ]
+    }
+  },
+  {
+    "Livre": [
       {
-        "Titre": {
-          "type": "string",
-          "required": true
-        }
-      },
-      {
-        "Annee": {
-          "type": "integer",
-          "required": true
-        }
-      },
-      {
-        "Prix": {
-          "type": "integer",
-          "required": true
-        }
+        "No Livre": "2202",
+        "Titre": "Sous l'orage",
+        "Annee": "2001",
+        "Prix": 20000 
       }
-    ]
-  }
-},
-{ "Client": {
-    "type": "object",
-    "required": true,
-    "attributs": [
+    ],
+    "relations": {
+      "associations": [
+        
+      ]
+    }
+  },
+  {
+    "Client": [
       {
-        "Email": {
-          "type": "string",
-          "isPrimary": true
-        }
-      },
-      {
-        "Nom": {
-          "type": "string",
-          "required": true
-        }
-      },
-      {
-        "Prenom": {
-          "type": "string",
-          "required": true
-        }
-      },
-      {
-        "Telephone": {
-          "type": "string",
-          "required": true
-        }
+        "Email": "younouss@gmail.cmo" ,
+        "Nom": "NDIAYE" ,
+        "Prenom": "Younouss" ,
+        "Telephone": "+221 77 123 45 67"
       }
-    ]
+    ],
+    "relations": {
+      "associations": [
+        
+      ]
+    }
   }
-}]
+]
