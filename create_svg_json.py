@@ -45,7 +45,7 @@ for i in range(len(listEntites)):
                                            size = ("150px", "130px"),
                                            stroke_width = "1",
                                            stroke = "black",
-                                           fill = "rgb(38, 198, 218)"))
+                                           fill = "rgb(77, 208, 225)"))
         entityCoords = {
             "nomEntite": listEntites[i],
             "coordX": 10,
@@ -57,7 +57,7 @@ for i in range(len(listEntites)):
                                            size = ("150px", "26px"),
                                            stroke_width = "1",
                                            stroke = "black",
-                                           fill = "rgb(38, 198, 218)"))
+                                           fill = "rgb(77, 208, 225)"))
         
 
         # Affichage du nom de l'entité
@@ -84,7 +84,7 @@ for i in range(len(listEntites)):
                                            size = ("150px", "130px"),
                                            stroke_width = "1",
                                            stroke = "black",
-                                           fill = "rgb(38, 198, 218)"))
+                                           fill = "rgb(77, 208, 225)"))
 
         entityCoords = {
             "nomEntite": listEntites[i],
@@ -97,7 +97,7 @@ for i in range(len(listEntites)):
                                            size = ("150px", "26px"),
                                            stroke_width = "1",
                                            stroke = "black",
-                                           fill = "rgb(38, 198, 218)"))
+                                           fill = "rgb(77, 208, 225)"))
 
         
 
@@ -185,7 +185,7 @@ for i in range(len(listEntites)):
 
                     # Affichage du nom de l'association
                     svg_document.add(svg_document.text(nomAssoc,
-                        insert=((finLigneX - debutLigneX) / 2 + debutLigneX - 30, finLigneY - 10),
+                        insert=((finLigneX - debutLigneX) / 2 + debutLigneX - 30, (finLigneY - debutLigneY)/2 + debutLigneY + 20),
                         stroke='none',  
                         fill="rgb(15, 15, 15)",
                         font_size='15px',
