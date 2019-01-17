@@ -4,6 +4,8 @@ import json
 import validation
 from pathlib import Path
 from glob import glob
+import urllib2
+
 
 # DEBUT Fonction permettant d'extraire les donnees du fichier json en respectant le format
 def parseJSON(filePath):
@@ -14,22 +16,21 @@ def parseJSON(filePath):
 # FIN Fonction permettant d'extraire les donnees du fichier json en respectant le format
 
 
-if len(sys.argv) == 7:
+if len(sys.argv) >= 7:
 
     fileType = sys.argv[2]
-    inputType = sys.argv[3]
-    myfile = sys.argv[4]
-    svgFile = sys.argv[6]
-
-    fileName, fileExt = os.path.splitext(myfile)
-    fileExt = fileExt.lower()
+    inputType = sys.argv[4]
+    svgFile = sys.argv[7]
+    myfile = sys.argv[5]
 
     if __name__ == "__main__":
         # Verification si le fichier en entree existe
-        if not(os.path.exists(myfile)):
-            print('---Erreur: Ce fichier n\'existe pas !')
-        else:
-            if inputType == '-f':
+        if inputType == '-f':
+            fileName, fileExt = os.path.splitext(myfile)
+            fileExt = fileExt.lower()
+            if not(os.path.exists(myfile)):
+                print('---Erreur: Ce fichier n\'existe pas !')
+            else:
                 file = open(myfile)
                 data = file.read()
                 if fileType == 'json':
@@ -48,16 +49,16 @@ if len(sys.argv) == 7:
                         print('---Erreur: Veuillez entrer un fichier XML')
                     else:
                         if validation.xml_validator(myfile):
-                            print('Traitement du fichier XML')
+                            import create_svg_xml
                         else:
                             validation.xml_validator(myfile)
                 else:
                     print("---Erreur: Veuillez specifier un type de fichier correct.")
                     print("---Votre choix: "+fileType)
-            elif inputType == '-h':
-                print('Methode http')
-            else:
-                print("---Erreur: Veuillez specifier un type d'acquisition de fichier correct.")
-                print("---Votre choix: "+inputType)
+        elif inputType == '-h':
+            import create_svg_xml
+        else:
+            print("---Erreur: Veuillez specifier un type d'acquisition de fichier correct.")
+            print("---Votre choix: "+inputType)
 else:
     print('---Erreur: Nombre d\'arguments incorrect')
