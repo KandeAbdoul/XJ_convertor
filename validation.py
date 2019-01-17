@@ -3,8 +3,10 @@ from xml.sax.handler import ContentHandler
 from xml.sax import make_parser
 
 # DEBUT Fonction de validation du fichier JSON
-def json_validator(data):
+def json_validator(myfile):
     try:
+        file = open(myfile)
+        data = file.read()
         json.loads(data)
         return True
     except ValueError as error:

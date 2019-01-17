@@ -38,11 +38,10 @@ if len(sys.argv) >= 7:
                     if (fileExt != '.json'):
                         print('---Erreur: Veuillez entrer un fichier JSON')
                     else:
-                        if validation.json_validator(data):
-
-                            import create_svg
+                        if validation.json_validator(myfile):
+                            import create_svg_json
                         else:
-                            print(validation.json_validator(data))
+                            print(validation.json_validator(myfile))
 
                 elif fileType == "xml":
                     if (fileExt != '.xml'):

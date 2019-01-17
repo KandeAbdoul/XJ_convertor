@@ -26,4 +26,12 @@
              </sequence>
       </relation>
   </complexType>
+  <complexType name="Restaurant_Adresse">
+      <relation name="situer">
+            <sequence>
+                <element name="Address" minOccurs="1" maxOccurs="1" />
+                <element name="Restaurant" minOccurs="0" maxOccurs="n" />
+             </sequence>
+      </relation>
+  </complexType>
 </schema>
