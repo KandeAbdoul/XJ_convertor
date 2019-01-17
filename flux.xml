@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+ 
+  <complexType name="Etudiant" abstract="true">
+      <sequence>
+          <element name="name" type="string"/>
+          <element name="last_name" type="string"/>
+          <element name="ine" type="string"/>
+          <element name="classe" type="Classe"/>
+      </sequence>
+  </complexType>
+  <complexType name="Classe" abstract="true">
+      <sequence>
+          <element name="id_classe" type="string"/>
+          <element name="nom" type="string"/>
+      </sequence>
+  </complexType>
+  
+  <complexType name="Etudiant_Classe">
+      <relation name="Frequente">
+            <sequence>
+                <element name="Etudiant" minOccurs="1" maxOccurs="1" />
+                <element name="Classe" minOccurs="0" maxOccurs="n" />
+             </sequence>
+      </relation>
+  </complexType>
+</schema>

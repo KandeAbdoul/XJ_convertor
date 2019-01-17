@@ -24,10 +24,9 @@ def parsefile(file):
 def xml_validator(file):
     try:
         parsefile(file)
-        # print ("Le fichier %s est bien formatté" % file)
         return True
     except Exception as e:
-        print ("---Erreur: Le fichier %s n'est pas bien formatté ! " % file)
+        print (file," n'est pas bien formate")
         print("Voici l'erreur: %s" % e)
         return False
 # FIN Fonction de validation du fichier XML
