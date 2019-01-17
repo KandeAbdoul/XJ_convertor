@@ -7,11 +7,10 @@ if XJ_Convertor.inputType == '-f':
     myJsonData = XJ_Convertor.parseJSON(XJ_Convertor.myfile)
 elif XJ_Convertor.inputType == '-h':
     response = requests.get(url = XJ_Convertor.url)
-    myJsonData = response.json()  
+    myJsonData = response.json()
     
 listEntites = []
 # Recuperation de la liste des entités
-
 for i in range(len(myJsonData)):
     keys = myJsonData[i].keys()
     key = next(iter(keys))
@@ -46,7 +45,7 @@ for i in range(len(listEntites)):
                                            size = ("150px", "130px"),
                                            stroke_width = "1",
                                            stroke = "black",
-                                           fill = "rgb(209, 250, 46)"))
+                                           fill = "rgb(38, 198, 218)"))
         entityCoords = {
             "nomEntite": listEntites[i],
             "coordX": 10,
@@ -58,7 +57,7 @@ for i in range(len(listEntites)):
                                            size = ("150px", "26px"),
                                            stroke_width = "1",
                                            stroke = "black",
-                                           fill = "rgb(209, 250, 46)"))
+                                           fill = "rgb(38, 198, 218)"))
         
 
         # Affichage du nom de l'entité
@@ -85,7 +84,7 @@ for i in range(len(listEntites)):
                                            size = ("150px", "130px"),
                                            stroke_width = "1",
                                            stroke = "black",
-                                           fill = "rgb(209, 250, 46)"))
+                                           fill = "rgb(38, 198, 218)"))
 
         entityCoords = {
             "nomEntite": listEntites[i],
@@ -98,7 +97,7 @@ for i in range(len(listEntites)):
                                            size = ("150px", "26px"),
                                            stroke_width = "1",
                                            stroke = "black",
-                                           fill = "rgb(209, 250, 46)"))
+                                           fill = "rgb(38, 198, 218)"))
 
         
 
@@ -134,15 +133,15 @@ for i in range(len(listEntites)):
             #     listAssocs.append(key)
             #     print(key)
             nomAutreEntite = myJsonData[i]['relations']['associations'][j]["nomAutreEntite"]
-            # cardDeb = myJsonData[i][listEntites[i]]['relations']['associations'][j]["cardDeb"]
-            # cardFin = myJsonData[i][listEntites[i]]['relations']['associations'][j]["cardFin"]
             nomAssoc = myJsonData[i]['relations']['associations'][j]["nomAssoc"]
+            cardDeb = myJsonData[i]['relations']['associations'][j]["cardDeb"]
+            cardFin = myJsonData[i]['relations']['associations'][j]["cardFin"]
 
             for k in range(len(entityCoordsList)):
                 if entityCoordsList[k]['nomEntite'] == listEntites[i]:
                     for p in range(len(entityCoordsList)):
                         if entityCoordsList[p]['nomEntite'] == nomAutreEntite:
-                            if entityCoordsList[i]['coordX'] == entityCoordsList[p]['coordX']:                               
+                            if entityCoordsList[i]['coordX'] == entityCoordsList[p]['coordX']:
                                 debutLigneX = entityCoordsList[k]['coordX'] + 75
                                 debutLigneY = entityCoordsList[k]['coordY'] + 130
                             elif entityCoordsList[i]['coordY'] == entityCoordsList[p]['coordY']:
@@ -154,7 +153,7 @@ for i in range(len(listEntites)):
                     for p in range(len(entityCoordsList)):
                         if entityCoordsList[p]['nomEntite'] == nomAutreEntite:
                             if entityCoordsList[i]['coordX'] == entityCoordsList[p]['coordX']:
-                                finLigneX = entityCoordsList[k]['coordX'] + 5
+                                finLigneX = entityCoordsList[k]['coordX'] + 65
                                 finLigneY = entityCoordsList[k]['coordY']
                             elif entityCoordsList[i]['coordY'] == entityCoordsList[p]['coordY']:
                                 finLigneX = entityCoordsList[k]['coordX']
@@ -167,22 +166,22 @@ for i in range(len(listEntites)):
                         stroke="rgb(15, 15, 15)"))
                     
                     # # Affichage de la cardinalité depart
-                    # svg_document.add(svg_document.text(cardDeb,
-                    #     insert=(debutLigneX + 10, debutLigneY - 10),
-                    #     stroke='none',  
-                    #     fill="rgb(15, 15, 15)",
-                    #     font_size='15px',
-                    #     font_weight="bold")
-                    # )
+                    svg_document.add(svg_document.text(cardDeb,
+                        insert=(debutLigneX + 10, debutLigneY + 20),
+                        stroke='none',  
+                        fill="rgb(15, 15, 15)",
+                        font_size='15px',
+                        font_weight="bold")
+                    )
 
                     # # Affichage de la cardinalité arrivée
-                    # svg_document.add(svg_document.text(cardFin,
-                    #     insert=(finLigneX - 30, finLigneY - 10),
-                    #     stroke='none',  
-                    #     fill="rgb(15, 15, 15)",
-                    #     font_size='15px',
-                    #     font_weight="bold")
-                    # )
+                    svg_document.add(svg_document.text(cardFin,
+                        insert=(finLigneX - 40, finLigneY + 20),
+                        stroke='none',  
+                        fill="rgb(15, 15, 15)",
+                        font_size='15px',
+                        font_weight="bold")
+                    )
 
                     # Affichage du nom de l'association
                     svg_document.add(svg_document.text(nomAssoc,

@@ -1,0 +1,67 @@
+{"myFile": [
+  {
+    "Ecrivain": [
+      {
+        "No Ecrivain": "MK99",
+        "Nom": "KEBE",
+        "Prenom": "Moustapha"
+      },
+      { 
+        "No Ecrivain": "AB12",
+        "Nom": "DOE",
+        "Prenom": "John" 
+      },
+      {
+        "No Ecrivain": "JS34",
+        "Nom": "SERIEN",
+        "Prenom": "Jean"
+      }
+    ],
+    "relations": {
+      "associations": [
+        {
+          "nomAutreEntite": "Livre",
+          "nomAssoc": "Ecrire",
+          "cardDeb": "(0, n)",
+          "cardFin": "(1, n)"
+        },
+        {
+          "nomAutreEntite": "Client",
+          "nomAssoc": "Signer",
+          "cardDeb": "(0, n)",
+          "cardFin": "(1, n)"
+        }
+      ]
+    }
+  },
+  {
+    "Livre": [
+      {
+        "No Livre": "2202",
+        "Titre": "Sous l'orage",
+        "Annee": "2001",
+        "Prix": 20000 
+      }
+    ],
+    "relations": {
+      "associations": [
+
+      ]
+    }
+  },
+  {
+    "Client": [
+      {
+        "Email": "jonas@gmail.cmo" ,
+        "Nom": "NDIAYE" ,
+        "Prenom": "Jonas" ,
+        "Telephone": "+221 77 123 45 67"
+      }
+    ],
+    "relations": {
+      "associations": [
+        
+      ]
+    }
+  }
+]}
